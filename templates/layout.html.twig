@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <link rel="stylesheet" type="text/css" href="style.css" />
+
+    <title>{% block title %}Default Title{% endblock %}</title>
+</head>
+<body>
+
+<div class="user_block">
+<img src="ico-user.png" width="150px">
+<br>
+<br>
+omar
+<br>
+<br>
+gazzah
+</div>
+
+<div class="head">
+<div  class="logo_class">
+
+<img src="logo_plan.png" width="250px"/>
+
+</div>
+<div class="nav">
+    <a href="">Des évenements</a>
+    <a href="">Les évenements reservé</a>
+    <a href="">Les évenements reservé</a>
+
+</div>
+
+
+
+
+</div>
+<hr>
+    <div id="content">
+
+        {% block content %}{% endblock %}
+    </div>
+
+
+
+
+</body>
+</html>
