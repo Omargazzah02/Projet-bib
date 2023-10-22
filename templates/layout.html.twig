@@ -1,40 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style1.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Default Title{% endblock %}</title>
 </head>
 <body>
 <div class="header">
-<img src="logosite.png" >
+<img src="logo.png" width="100px" >
 <div class="nav">
 <a href='#'  >exemple </a>
 <a href='#'  >exemple </a>
 <a href='#'  >exemple </a>
 
 
+
+
+
 </div>
 
-<div class="recherche">
+
+<div class="recherche" >
 <p>Date</p>
-<input type="date " >
+<input type="date"  >
 <p>Disponibilité</p>
 
-<input type="radio">
+<input type="radio" >
+<button class="but">Rechercher</button>
+
+</div>
 
 
 </div>
 
 
-</div>
-
-
 
 
 </div>
 
+
+{% block contenu %}{% endblock %}
 
 </body>
 </html>
