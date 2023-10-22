@@ -1,5 +1,6 @@
 body{
     margin: 0;
+    background-color: #FF3131;
 }
 
 .header{
@@ -37,8 +38,7 @@ a:hover{
 background-color: aliceblue;
 color: black;}
 
-
-p{
+.whitetext{
 
     color:white;
 }
