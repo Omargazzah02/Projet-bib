@@ -1,32 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-   <link rel="stylesheet" type="text/css" href="style.css" />
-
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Default Title{% endblock %}</title>
 </head>
 <body>
-
-<div class="user_block">
-<img src="ico-user.png" width="150px">
-<br>
-<br>
-omar
-<br>
-<br>
-gazzah
-</div>
-
-<div class="head">
-<div  class="logo_class">
-
-<img src="logo_plan.png" width="250px"/>
-
-</div>
+<div class="header">
+<img src="logosite.png" >
 <div class="nav">
-    <a href="">Des évenements</a>
-    <a href="">Les évenements reservé</a>
-    <a href="">Les évenements reservé</a>
+<a href='#'  >exemple </a>
+<a href='#'  >exemple </a>
+<a href='#'  >exemple </a>
+
+
+</div>
+
+<div class="recherche">
+<p>Date</p>
+<input type="date " >
+<p>Disponibilité</p>
+
+<input type="radio">
+
+
+</div>
+
 
 </div>
 
@@ -34,13 +34,6 @@ gazzah
 
 
 </div>
-<hr>
-    <div id="content">
-
-        {% block content %}{% endblock %}
-    </div>
-
-
 
 
 </body>
