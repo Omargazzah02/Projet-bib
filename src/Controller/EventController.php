@@ -8,6 +8,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+
 use App\Entity\Event;
 use App\Entity\Reserv;
 
@@ -23,7 +24,7 @@ class EventController extends AbstractController
   private $alert;
 
     #[Route('/zoneuser', name: 'zoneuser')]
-    public function userzone(EventRepository $eventmod,UsersRepository $user ): Response
+    public function userzone(EventRepository $eventmod,UsersRepository $user,Request $request ): Response
     {
 
 
@@ -49,8 +50,21 @@ $bool=true;
 } else 
 {
     $bool=false;
+
+
+
 }
 
+
+if ($request->isMethod('POST'))
+{
+    $dateString = $request->request->get('date');
+    $date = new \DateTime($dateString);
+
+    $events=$eventmod->findBy(['date'=>$date]);
+    return $this->render('usertemplates/zoneuser.html.twig', ['events' => $events,'admin'=>$bool]);
+
+}
         return $this->render('usertemplates/zoneuser.html.twig', ['events' => $events,'admin'=>$bool]);
     }
 
@@ -109,7 +123,7 @@ if ($admin){
     }
 
     #[Route('/zoneadmin', name: 'zoneadmin')]
-    public function zoneadmin(EventRepository $eventmod,UsersRepository $user): Response
+    public function zoneadmin(EventRepository $eventmod,UsersRepository $user,Request $request): Response
     {
 
 //verifier si admin
@@ -118,12 +132,26 @@ $admin= $user->findOneBy(['isadmin' =>1,'isconnect'=>1]);
 if ($admin){
         
         $events = $eventmod->findAll();
+        if ($request->isMethod('POST'))
+        {
+            $dateString = $request->request->get('date');
+            $date = new \DateTime($dateString);
+        
+            $events=$eventmod->findBy(['date'=>$date]);
+        
+        }
+
+
 }
 else {
     return $this->redirectToRoute('seconnecter');
 
 
 }
+
+
+
+
 
         return $this->render('admintemplates/zoneadmin.html.twig', ['events' => $events]);
     }

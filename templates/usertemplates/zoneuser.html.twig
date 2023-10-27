@@ -1,7 +1,17 @@
 {% extends 'usertemplates/layoutuser.html.twig' %}
 
 {%block links2%} {%if (admin)%}  <a href="zoneadmin"  class="link">  Page Admin</a> {%endif%}{%endblock%}
+{%block recherche%}
 
+<form method='post' action='zoneuser'> 
+<label style='color:white'> Date </label> 
+
+<input type='date' name='date'/>
+
+<button type='submit'>Recercher</button> 
+
+ </form>
+{%endblock%}
 
 
 {% block title %}Zone Utilisateur{% endblock %}

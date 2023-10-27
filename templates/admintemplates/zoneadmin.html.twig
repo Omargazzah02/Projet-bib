@@ -1,5 +1,15 @@
 
 {%extends 'admintemplates/layoutadmin.html.twig'%}
+{%block recherche%}
+
+<form method='post' action='zoneadmin'> 
+<label style='color:white'> Date </label> 
+<input type='date' name='date'/>
+
+<button type='submit'>Recercher</button> 
+
+ </form>
+{%endblock%}
 
 {% block title %}Zone admin{% endblock %}
 
