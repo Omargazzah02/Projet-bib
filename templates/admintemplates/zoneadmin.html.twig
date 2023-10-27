@@ -1,0 +1,27 @@
+
+{%extends 'admintemplates/layoutadmin.html.twig'%}
+
+{% block title %}Zone admin{% endblock %}
+
+{%block contenu%}
+    <div class="events" style="width:1500px"> 
+   {%for event in events%}
+        <div class="event">
+            <img src="original.jpg" class="img-event" >
+           
+            <div class="zonetext">
+        
+            <h1>{{event.name}}</h1>
+            <p> Disponibilité:  {{event.getNbPersones()}}/{{event.getMaxNbPersones()}}
+            </p>
+           <p>Date de l'événement : {{ event.date ? event.date|date('Y-m-d') : 'Non spécifiée' }}</p>
+
+            <a href="{{path('deleteevent',{id:event.id})}}" class="button"  onclick="alert('Vous avez suprimmé un évenement !')"  >Suprimmer</a>
+                        <a href="{{path('editevent',{id:event.id})}}" class="button"style='margin:30px' >Modifier</a>
+
+        </div>
+
+        </div>
+{%endfor%}
+        </div>
+{%endblock%}

@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="style1.css">
+    <link rel="stylesheet" href="{{ asset('style8.css') }}">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Default Title{% endblock %}</title>
 </head>
 <body>
 <div class="header">
-<img src="logo.png" width="100px" >
+<img src="{{ asset('logo.png') }}" width="100px" >
 <div class="nav">
-<a href='#'  >exemple </a>
-<a href='#'  >exemple </a>
-<a href='#'  >exemple </a>
+
+{%block links%}          
+
+
+
+{%endblock%}
 
 
 
@@ -22,12 +25,19 @@
 
 
 <div class="recherche" >
-<p class='whitetext'>Date</p>
-<input type="date"  >
-<p class='whitetext' >Disponibilité</p>
+{%block recherche%} {%endblock%}
 
-<input type="radio" >
-<button class="but">Rechercher</button>
+</div>
+
+
+
+<div class="account" >
+
+<img src="ico-user.png" width="50px" style="margin-top:25px; margin-left:20px"/>
+<br>
+<p class='label' >{%block nom%} {%endblock%}
+ </p>
+
 
 </div>
 

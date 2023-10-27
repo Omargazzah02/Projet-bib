@@ -1,0 +1,104 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{{ asset('style8.css') }}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription</title>
+</head>
+<body>
+<div class="header">
+<img src="{{ asset('logo.png') }}" width="100px" >
+<div class="nav">
+
+{%block links%}          
+
+
+
+{%endblock%}
+
+
+
+
+
+</div>
+
+
+<div class="recherche" >
+{%block recherche%} {%endblock%}
+
+</div>
+
+
+
+<div class="account" >
+
+<img src="ico-user.png" width="50px" style="margin-top:15px"/>
+<br>
+<p class='label' >{%block nom%} {%endblock%}
+</p>
+<p class='label' >{%block prenom%} {%endblock%}
+ </p>
+
+
+</div>
+
+
+</div>
+
+
+
+
+</div>
+
+
+
+<h1 class='titre'>Inscrire</h1>
+<br>
+<form class='form' method='post' enctype="multipart/form-data>
+
+{{form_start (form)}}
+{{ form_label(form.firstname) }}
+
+<br>
+{{ form_widget(form.firstname) }}
+
+<br>
+
+
+
+
+
+
+
+{{form_label(form.lastname)}}
+<br>
+{{form_widget(form.lastname)}}
+<br>
+{{form_label(form.email)}}
+<br>
+{{form_widget(form.email)}}
+<br>
+{{form_label(form.password)}}
+<br>
+{{form_widget(form.password)}}
+<br>
+
+
+<br>
+        {{ form_errors(form) }}
+<br>
+{{form_row(form.submit)}}
+
+
+{{form_end (form)}}
+
+
+</form>
+
+
+</body>
+</html>

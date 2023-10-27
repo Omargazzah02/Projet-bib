@@ -1,0 +1,33 @@
+{% extends 'usertemplates/layoutuser.html.twig' %}
+{%block links2%} {%if (admin)%}  <a href="zoneadmin"  class="link">  Page Admin</a> {%endif%}{%endblock%}
+
+{% block title %}Reservations{% endblock %}
+{% block contenu %}
+
+    <div class="events" style="width:1500px"> 
+    {%for reservation in reservations%}
+        <div class="event" >
+
+            <img src="original.jpg" class="img-event" >
+            <div class="zonetext">
+           
+ 
+
+
+ <h1>{{reservation.name}}</h1>
+            <p> Disponibilité:  {{reservation.getNbPersones()}}/{{reservation.getMaxNbPersones()}}
+            </p>
+           <p>Date de l'événement : {{ reservation.date ? reservation.date|date('Y-m-d') : 'Non spécifiée' }}</p>
+
+
+
+                                <a  href ="{{path('annulerreserv',{id:reservation.id})}} "class="button" >Annuler La réservation</a> 
+
+            </div>
+
+        </div>
+        {%endfor%}
+        </div>
+
+
+{% endblock %}

@@ -1,0 +1,36 @@
+{%extends 'admintemplates/layoutadmin.html.twig'%}
+
+
+{%block contenu%}
+<h1 class='titre'>Créer un évenement</h1>
+<form class='form' method='post' enctype="multipart/form-data>
+{% block title %}Créer evenement{% endblock %}
+{{form_start (form)}}
+{{ form_label(form.name) }}
+
+<br>
+{{ form_widget(form.name) }}
+
+<br>
+{{form_label(form.date)}}
+<br>
+{{form_widget(form.date)}}
+<br>
+{{form_label(form.max_nb_persones)}}
+<br>
+{{form_widget(form.max_nb_persones)}}
+<br>
+{{form_label(form.nb_persones)}}
+<br>
+{{form_widget(form.nb_persones)}}
+
+{{ form_errors(form) }}
+
+{{form_row(form.submit)}}
+
+
+{{form_end (form)}}
+
+
+</form>
+{%endblock%}

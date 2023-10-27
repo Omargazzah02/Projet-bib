@@ -1,0 +1,25 @@
+{% extends 'usertemplates/layoutuser.html.twig' %}
+
+{%block links2%} {%if (admin)%}  <a href="zoneadmin"  class="link">  Page Admin</a> {%endif%}{%endblock%}
+
+
+
+{% block title %}Zone Utilisateur{% endblock %}
+{%block contenu%}
+ <div class="events"> 
+ {%for event in events%}
+        <div class="event">
+            <img src="original.jpg" class="img-event" >
+            <div class="zonetext">
+        
+            <h1>{{event.name}}</h1>
+            <p> Disponibilité:  {{event.getNbPersones()}}/{{event.getMaxNbPersones()}}
+            </p>
+           <p>Date de l'événement : {{ event.date ? event.date|date('Y-m-d') : 'Non spécifiée' }}</p>
+
+            <a href="{{path('reserver',{id:event.id})}}" class="button" onclick="alert('Vous avez reservé cette évenement')" >Reserver</a>
+        </div>
+
+        </div>
+{%endfor%}
+        {%endblock%}
