@@ -49,7 +49,7 @@
             <div class="zonetext">
         
             <h1>{{event.name}}</h1>
-            <p> Disponibilité:  {{event.getNbPersones()}}/{{event.getMaxNbPersones()}}
+            <p> Disponibilité:  {{event.getNbPersones()}}/{{event.getMaxNbPersones()}} {%if (event.getNbPersones() >= event.getMaxNbPersones())%}   Complet! {%endif%} 
             </p>
            <p>Date de l'événement : {{ event.date ? event.date|date('Y-m-d') : 'Non spécifiée' }}</p>
 
