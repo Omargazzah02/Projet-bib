@@ -37,6 +37,11 @@ class EventType extends AbstractType
             'label' => "Nombre de personnes réservées",
             'label_attr' => ['class' => 'label'],
         ])
+        ->add('photo', TextType::class, [
+            'attr' => ['class' => 'input'],
+            'label' => "Photo (Saisir Votre Url Ici!)",
+            'label_attr' => ['class' => 'label'],
+        ])
 
     
 

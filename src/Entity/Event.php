@@ -29,7 +29,7 @@ private ?\DateTimeInterface $date = null;
     #[ORM\Column]
     private ?int $max_nb_persones = null;
 
-
+ 
     public function getId(): ?int
     {
         return $this->id;
@@ -58,6 +58,8 @@ private ?\DateTimeInterface $date = null;
 
         return $this;
     }
+
+   
 
     public function getDate(): ?\DateTimeInterface
     {

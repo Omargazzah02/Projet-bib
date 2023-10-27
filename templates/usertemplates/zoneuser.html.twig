@@ -5,19 +5,21 @@
 
 
 {% block title %}Zone Utilisateur{% endblock %}
+
 {%block contenu%}
+<h1 class='titre'>Les évenements </h1>
+<br>
  <div class="events"> 
  {%for event in events%}
         <div class="event">
-            <img src="original.jpg" class="img-event" >
+            <img src="{{event.photo}}" class="img-event" >
             <div class="zonetext">
         
             <h1>{{event.name}}</h1>
             <p> Disponibilité:  {{event.getNbPersones()}}/{{event.getMaxNbPersones()}}
             </p>
            <p>Date de l'événement : {{ event.date ? event.date|date('Y-m-d') : 'Non spécifiée' }}</p>
-
-            <a href="{{path('reserver',{id:event.id})}}" class="button" onclick="alert('Vous avez reservé cette évenement')" >Reserver</a>
+            <a href="{{path('reserver',{id:event.id})}}" class="button"  >Reserver</a>
         </div>
 
         </div>

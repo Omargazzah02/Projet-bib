@@ -1,9 +1,9 @@
 {%extends 'layout.html.twig'%}
 {%block links%}
-<a href="zoneadmin" class="link" >Evenements</a> 
+<a href={{ asset("zoneadmin")}} class="link" >Evenements</a> 
 
-<a href="creerevent" class="link" >Créer Evenement</a> 
-<a href="zoneuser" class="link" >Page Utilisateur</a> 
+<a href={{ asset("creerevent")}} class="link" >Créer Evenement</a> 
+<a href={{ asset("zoneuser")}} class="link" >Page Utilisateur</a> 
 
 
 {%endblock%}

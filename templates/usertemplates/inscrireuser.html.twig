@@ -1,10 +1,15 @@
 
 
 
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="{{ asset('style8.css') }}">
+    <link rel="stylesheet" href="{{ asset('style9.css') }}">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inscription</title>
@@ -89,7 +94,12 @@
 
 
 <br>
-        {{ form_errors(form) }}
+{%if err is defined%}
+
+  <p style='color:red'>{{err}}</p>
+
+{%endif%}
+
 <br>
 {{form_row(form.submit)}}
 

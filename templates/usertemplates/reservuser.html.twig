@@ -3,12 +3,13 @@
 
 {% block title %}Reservations{% endblock %}
 {% block contenu %}
+<h1 class='titre'>Mes Réservations</h1>
 
     <div class="events" style="width:1500px"> 
+
     {%for reservation in reservations%}
         <div class="event" >
-
-            <img src="original.jpg" class="img-event" >
+            <img src="{{reservation.photo}}" class="img-event" >
             <div class="zonetext">
            
  

@@ -2,12 +2,12 @@
 
 namespace App\Entity;
 
-use App\Repository\ReservRepository;
+use App\Repository\ReservationsRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: ReservRepository::class)]
-class Reserv
+#[ORM\Entity(repositoryClass: ReservationsRepository::class)]
+class Reservations
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -17,12 +17,6 @@ class Reserv
     #[ORM\Column]
     private ?int $iduser = null;
 
-    #[ORM\Column(type: 'text', nullable: true)]
-private ?string $photo = null;
-
-    #[ORM\Column]
-    private ?int $idevent = null;
-
     #[ORM\Column(length: 255)]
     private ?string $name = null;
 
@@ -30,7 +24,7 @@ private ?string $photo = null;
     private ?int $nb_persones = null;
 
     #[ORM\Column]
-    private ?int $max_nb_persones = null;
+    private ?int $nb_max_persones = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE)]
     private ?\DateTimeInterface $date = null;
@@ -48,18 +42,6 @@ private ?string $photo = null;
     public function setIduser(int $iduser): static
     {
         $this->iduser = $iduser;
-
-        return $this;
-    }
-
-    public function getIdevent(): ?int
-    {
-        return $this->idevent;
-    }
-
-    public function setIdevent(int $idevent): static
-    {
-        $this->idevent = $idevent;
 
         return $this;
     }
@@ -88,14 +70,14 @@ private ?string $photo = null;
         return $this;
     }
 
-    public function getMaxNbPersones(): ?int
+    public function getNbMaxPersones(): ?int
     {
-        return $this->max_nb_persones;
+        return $this->nb_max_persones;
     }
 
-    public function setMaxNbPersones(int $max_nb_persones): static
+    public function setNbMaxPersones(int $nb_max_persones): static
     {
-        $this->max_nb_persones = $max_nb_persones;
+        $this->nb_max_persones = $nb_max_persones;
 
         return $this;
     }
@@ -114,18 +96,11 @@ private ?string $photo = null;
 
 
 
-    public function getPhoto(): ?string
-    {
-        return $this->photo;
-    }
 
-    public function setPhoto(string $photo): static
-    {
-        $this->photo = $photo;
 
-        return $this;
-    }
 
 
 
 }
+
+
