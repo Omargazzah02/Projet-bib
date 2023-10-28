@@ -129,7 +129,7 @@ if ($admin){
 
 //verifier si admin
 $admin= $user->findOneBy(['isadmin' =>1,'isconnect'=>1]);
-
+$user= $user->findOneBy(['isconnect'=>1]);
 if ($admin){
         
         $events = $eventmod->findAll();
