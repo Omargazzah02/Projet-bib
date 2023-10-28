@@ -21,7 +21,7 @@ class Users
 
 
     #[ORM\Column(length: 255)]
-    private ?string $lastname = null;
+    public ?string $lastname = null;
 
  
 

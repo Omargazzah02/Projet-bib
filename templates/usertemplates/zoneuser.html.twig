@@ -1,8 +1,8 @@
 {% extends 'usertemplates/layoutuser.html.twig' %}
+{%block nom%} <label style='color:white  ; font-size:18px' ; > {{nom}} </label>{%endblock%}
 
 {%block links2%} {%if (admin)%}  <a href="zoneadmin"  class="link">  Page Admin</a> {%endif%}{%endblock%}
 {%block recherche%}
-
 <form method='post' action='zoneuser'> 
 <label style='color:white'> Date </label> 
 

@@ -62,10 +62,10 @@ if ($request->isMethod('POST'))
     $date = new \DateTime($dateString);
 
     $events=$eventmod->findBy(['date'=>$date]);
-    return $this->render('usertemplates/zoneuser.html.twig', ['events' => $events,'admin'=>$bool]);
+    return $this->render('usertemplates/zoneuser.html.twig', ['events' => $events,'admin'=>$bool,'nom'=>$utilisateur->firstname." ".$utilisateur->lastname]);
 
 }
-        return $this->render('usertemplates/zoneuser.html.twig', ['events' => $events,'admin'=>$bool]);
+        return $this->render('usertemplates/zoneuser.html.twig', ['events' => $events,'admin'=>$bool,'nom'=>$utilisateur->firstname." ".$utilisateur->lastname]);
     }
 
     #[Route('/reservuser', name: 'reservuser')]
@@ -93,7 +93,7 @@ $bool=true;
 
 //
 
-        return $this->render('usertemplates/reservuser.html.twig',['admin'=>$bool,'reservations'=>$reservations]);
+        return $this->render('usertemplates/reservuser.html.twig',['admin'=>$bool,'reservations'=>$reservations,'nom'=>$utilisateur->firstname." ".$utilisateur->lastname]);
     }
 
     #[Route('/creerevent', name: 'creerevent', methods: ['GET', 'POST'])]
@@ -101,6 +101,7 @@ $bool=true;
     {
 
         $admin= $user->findOneBy(['isadmin' =>1,'isconnect'=>1]);
+        $utilisateur=$user->findOneBy(['isconnect'=>1]);
 
 if ($admin){
         $event = new Event();
@@ -119,7 +120,7 @@ if ($admin){
 
     }
 
-        return $this->render('admintemplates/creeradmin.html.twig', ['form' => $form->createView()]);
+        return $this->render('admintemplates/creeradmin.html.twig', ['form' => $form->createView(),'nom'=>$utilisateur->firstname." ".$utilisateur->lastname]);
     }
 
     #[Route('/zoneadmin', name: 'zoneadmin')]
@@ -153,7 +154,7 @@ else {
 
 
 
-        return $this->render('admintemplates/zoneadmin.html.twig', ['events' => $events]);
+        return $this->render('admintemplates/zoneadmin.html.twig', ['events' => $events,'nom'=>$user->firstname." ".$user->lastname]);
     }
 
     #[Route('/deleteevent/{id}', name: 'deleteevent')]
@@ -184,7 +185,7 @@ else {
             return $this->redirectToRoute('zoneadmin');
         }
 
-        return $this->render('admintemplates/creeradmin.html.twig', ['form' => $form->createView()]);
+        return $this->render('admintemplates/creeradmin.html.twig', ['form' => $form->createView(),'nom'=>$user->firstname." ".$user->lastname]);
     }
 
     #[Route('/inscrireuser', name: 'inscrireuser', methods: ['GET', 'POST'])]
